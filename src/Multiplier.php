@@ -6,12 +6,18 @@ namespace Choult\UTDR;
 
 class Multiplier
 {
+    private $adder;
+
+    public function __construct(Adder $adder)
+    {
+        $this->adder = $adder;
+    }
+
     public function multiply(int $a, int $b): int
     {
-        $adder = new Adder();
         $val = 0;
         for ($i = 0; $i < $b; $i++) {
-            $val = $adder->add($val, $a);
+            $val = $this->adder->add($val, $a);
         }
 
         return $val;
