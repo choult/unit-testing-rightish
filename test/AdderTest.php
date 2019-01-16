@@ -37,7 +37,7 @@ class AdderTest extends \PHPUnit\Framework\TestCase
      */
     public function testAdd(int $a, int $b, int $expected)
     {
-        $adder = new Adder();
+        $adder = new Adder('My adder');
         $this->assertEquals($expected, $adder->add($a, $b));
     }
 }
