@@ -45,4 +45,40 @@ class AdderTest extends \PHPUnit\Framework\TestCase
         $adder = new Adder('My adder');
         $this->assertEquals($expected, $adder->add($a, $b));
     }
+
+    public function constructProvider(): array
+    {
+        return [
+            'My made up name' => [
+                'name' => 'Rumplestumpleskin',
+            ],
+            'Blank name' => [
+                'name' => '',
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider constructProvider
+     *
+     * @covers ::__construct
+     */
+    public function testConstruct(string $name)
+    {
+        $adder = new Adder($name);
+        $this->assertEquals($name, $adder->getName());
+    }
+
+    /**
+     * @dataProvider constructProvider
+     *
+     * @covers ::setName
+     * @covers ::getName
+     */
+    public function testGetSetName(string $name)
+    {
+        $adder = new Adder('should never see');
+        $adder->setName($name);
+        $this->assertEquals($name, $adder->getName());
+    }
 }
