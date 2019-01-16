@@ -2,6 +2,9 @@
 
 namespace Choult\UTDR;
 
+/**
+ * @covers \Choult\UTDR\Multiplier
+ */
 class MultiplierTest extends \PHPUnit\Framework\TestCase
 {
     public function testMultiply()

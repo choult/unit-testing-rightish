@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Choult\UTDR;
 
+/**
+ * @coversDefaultClass \Choult\UTDR\Adder
+ */
 class AdderTest extends \PHPUnit\Framework\TestCase
 {
     public function addProvider(): array
@@ -34,6 +37,8 @@ class AdderTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @dataProvider addProvider
+     *
+     * @covers ::add
      */
     public function testAdd(int $a, int $b, int $expected)
     {
